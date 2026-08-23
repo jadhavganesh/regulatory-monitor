@@ -4,9 +4,16 @@ from agents.impact_agent import impact_agent
 from agents.judge_agent import judge_agent
 
 regulation_text = """
-The Ministry of Agriculture has introduced a new regulation
-requiring farmers to maintain records of fertilizer usage
-for agricultural land.
+RBI has issued a new regulation requiring financial
+institutions and technology service providers that
+process customer transaction data to retain transaction
+records for a minimum period of seven years.
+
+Organizations must ensure that customer transaction data
+is securely stored and available for regulatory audits.
+
+The regulation becomes effective from January 1, 2027.
+
 """
 # -----------------------------
 # Agent 1: Extraction
