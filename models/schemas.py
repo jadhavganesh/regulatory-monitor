@@ -26,4 +26,7 @@ class JudgeResult(BaseModel):
     confidence:float
     issues:List[str]
     evidence_supported:bool
+    confirmed_requirements: List[str]
+    inferred_impacts: List[str]
+    unsupported_claims: List[str]
     recommendation:str

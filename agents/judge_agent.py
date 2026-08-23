@@ -75,6 +75,31 @@ if important claims are unsupported or unreliable.
 
 Confidence must be between 0 and 1.
 
+IMPORTANT:
+
+Separate the analysis into three categories.
+
+1. CONFIRMED REQUIREMENTS
+
+These must be directly supported by the regulation.
+
+2. INFERRED IMPACTS
+
+These may reasonably follow from the regulation and
+company architecture, but are not explicitly stated.
+
+3. UNSUPPORTED CLAIMS
+
+These are claims that cannot reasonably be justified
+from the regulation or company information.
+
+Do NOT mark an inferred impact as a confirmed
+regulatory requirement.
+
+Be conservative.
+
+If there is uncertainty, mention it in issues
+
 Return ONLY valid JSON with:
 
 approved

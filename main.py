@@ -53,11 +53,6 @@ if relevance.relevant:
     print("==============================")
 
     print(impact)
-# else:
-#
-#     print("\nRegulation is not relevant.")
-#     print("Impact analysis skipped.")
-
 
     # --------------------------------
     # Agent 4 - Judge
