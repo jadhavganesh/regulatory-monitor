@@ -1,30 +1,52 @@
 from agents.extraction_agent import extraction_agent
+from agents.relevance_agent import relevance_agent
+from agents.impact_agent import impact_agent
 
 
 regulation_text = """
-RBI has issued a new regulation requiring financial
-institutions to retain customer transaction records
-for a minimum period of seven years.
-
-The regulation becomes effective from January 1, 2027.
+The Ministry of Agriculture has introduced a new regulation
+requiring farmers to maintain records of fertilizer usage
+for agricultural land.
 """
+# -----------------------------
+# Agent 1: Extraction
+# -----------------------------
 
 
 regulation = extraction_agent(regulation_text)
 
+print("\n==============================")
+print("AGENT 1 - EXTRACTION")
+print("==============================")
+
 print("\n--- EXTRACTION RESULT ---")
 print(regulation)
 
-print("\n--- REGULATION NAME ---")
-print(regulation.regulation_name)
+# -----------------------------
+# Agent 2: Relevance
+# -----------------------------
 
-print("\n--- EFFECTIVE DATE ---")
-print(regulation.effective_date)
+relevance = relevance_agent(regulation)
 
-print("\n--- REQUIREMENTS ---")
-for requirement in regulation.requirements:
-    print("-", requirement)
+print("\n==============================")
+print("AGENT 2 - RELEVANCE")
+print("==============================")
 
-print("\n--- AFFECTED ENTITIES ---")
-for entity in regulation.affected_entities:
-    print("-", entity)
+print(relevance)
+
+# --------------------------------
+# Agent 3 - Impact Analysis
+# --------------------------------
+
+if relevance.relevant:
+    impact = impact_agent(regulation,relevance)
+
+    print("\n==============================")
+    print("AGENT 3 - IMPACT ANALYSIS")
+    print("==============================")
+
+    print(impact)
+else:
+
+    print("\nRegulation is not relevant.")
+    print("Impact analysis skipped.")
