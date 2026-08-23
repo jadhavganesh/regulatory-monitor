@@ -21,3 +21,9 @@ class ImpactResult(BaseModel):
     risk:str
     reasoning:str
 
+class JudgeResult(BaseModel):
+    approved:bool
+    confidence:float
+    issues:List[str]
+    evidence_supported:bool
+    recommendation:str

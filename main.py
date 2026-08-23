@@ -1,7 +1,7 @@
 from agents.extraction_agent import extraction_agent
 from agents.relevance_agent import relevance_agent
 from agents.impact_agent import impact_agent
-
+from agents.judge_agent import judge_agent
 
 regulation_text = """
 The Ministry of Agriculture has introduced a new regulation
@@ -46,7 +46,41 @@ if relevance.relevant:
     print("==============================")
 
     print(impact)
-else:
+# else:
+#
+#     print("\nRegulation is not relevant.")
+#     print("Impact analysis skipped.")
 
+
+    # --------------------------------
+    # Agent 4 - Judge
+    # --------------------------------
+
+
+    judge=judge_agent(regulation,relevance,impact)
+
+    print("\n==============================")
+    print("AGENT 4 - JUDGE")
+    print("==============================")
+
+    print(judge)
+
+    # --------------------------------
+    # Final Decision
+    # --------------------------------
+
+    print("\n==============================")
+    print("FINAL DECISION")
+    print("==============================")
+
+    if judge.approved:
+        print("APPROVED")
+        print("Recommendation: ", judge.recommendation)
+    else:
+        print("REJECTED")
+        print("Issues:")
+        for issue in judge.issues:
+            print("-",issue)
+else:
     print("\nRegulation is not relevant.")
     print("Impact analysis skipped.")
