@@ -2,23 +2,36 @@ from agents.extraction_agent import extraction_agent
 from agents.relevance_agent import relevance_agent
 from agents.impact_agent import impact_agent
 from agents.judge_agent import judge_agent
+from ingestion.pdf_loader import extract_text_from_pdf
 
-regulation_text = """
-RBI has issued a new regulation requiring financial
-institutions and technology service providers that
-process customer transaction data to retain transaction
-records for a minimum period of seven years.
+# regulation_text = """
+# RBI has issued a new regulation requiring financial
+# institutions and technology service providers that
+# process customer transaction data to retain transaction
+# records for a minimum period of seven years.
+#
+# Organizations must ensure that customer transaction data
+# is securely stored and available for regulatory audits.
+#
+# The regulation becomes effective from January 1, 2027.
+#
+# """
 
-Organizations must ensure that customer transaction data
-is securely stored and available for regulatory audits.
 
-The regulation becomes effective from January 1, 2027.
+# --------------------------------
+# Load PDF
+# --------------------------------
 
-"""
-# -----------------------------
-# Agent 1: Extraction
-# -----------------------------
+pdf_path = "data/regulations/rbi_regulation.pdf"
 
+regulation_text = extract_text_from_pdf(pdf_path)
+
+
+print("\n==============================")
+print("PDF LOADED")
+print("==============================")
+
+print(f"Characters extracted: {len(regulation_text)}")
 
 regulation = extraction_agent(regulation_text)
 
